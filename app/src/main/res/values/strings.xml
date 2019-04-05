@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">FingerBoardCheck</string>
+    <string name="start">START</string>
+    <string name="submit">SUBMIT</string>
+    <string name="score">SCORE:</string>
+</resources>

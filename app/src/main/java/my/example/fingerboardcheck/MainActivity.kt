@@ -3,7 +3,9 @@ package my.example.fingerboardcheck
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.NumberPicker
 import android.widget.TextView
+import android.widget.Toast
 import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
@@ -11,6 +13,17 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val numberPicker = findViewById<NumberPicker>(R.id.numberPicker)
+        if (numberPicker != null) {
+            numberPicker.minValue = 0
+            numberPicker.maxValue = 10
+            numberPicker.wrapSelectorWheel = true
+            numberPicker.setOnValueChangedListener { picker, oldVal, newVal ->
+                val text = "Changed from $oldVal to $newVal"
+                Toast.makeText(this@MainActivity, text, Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
     fun setFingerPrint(view: View) {

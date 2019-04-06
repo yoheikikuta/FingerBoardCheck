@@ -91,9 +91,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun setFingerPrint(view: View) {
-        val randomFretValues = (0..13).shuffled().slice(0..6)
+        val randomFretValues = (0..12).shuffled().slice(0..6)
         val sortedFretValues = randomFretValues.sorted()
-        val randomStringPositionValues = List(6) { Random.nextInt(0,6) }
+        val randomStringPositionValues = (0..5).shuffled().toList()
         val getStringPositionCoordinates: HashMap<Int, Float> = hashMapOf<Int,Float>(
             0 to 25f, 1 to 150f, 2 to 270f, 3 to 420f, 4 to 550f, 5 to 670f
         )

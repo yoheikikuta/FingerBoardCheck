@@ -16,11 +16,13 @@ class MainActivity : AppCompatActivity() {
 
         val numberPicker = findViewById<NumberPicker>(R.id.numberPicker)
         if (numberPicker != null) {
+            val values = arrayOf("ド", "レ", "ミ", "ファ", "ソ", "ラ", "シ")
             numberPicker.minValue = 0
-            numberPicker.maxValue = 10
+            numberPicker.maxValue = values.size - 1
+            numberPicker.displayedValues = values
             numberPicker.wrapSelectorWheel = true
             numberPicker.setOnValueChangedListener { picker, oldVal, newVal ->
-                val text = "Changed from $oldVal to $newVal"
+                val text = "Changed from " + values[oldVal] + " to " + values[newVal]
                 Toast.makeText(this@MainActivity, text, Toast.LENGTH_SHORT).show()
             }
         }

@@ -1,5 +1,6 @@
 package my.example.fingerboardcheck
 
+import android.annotation.SuppressLint
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -58,47 +59,44 @@ class MainActivity : AppCompatActivity() {
         showFretTextView6.y = getStringPositionCoordinates[randomStringPositionValues[5]]!!
     }
 
+    @SuppressLint("SetTextI18n")
     fun submitAnswer(view: View) {
         val getStringPositionIndex: HashMap<Float, Int> = hashMapOf<Float, Int>(
             25f to 0, 150f to 1, 270f to 2, 420f to 3, 550f to 4, 670f to 5
         )
-        val showFretTextView1 = findViewById<TextView>(R.id.fret1)
-        val question1: Array<Int> = arrayOf(showFretTextView1.text.toString().toInt(), getStringPositionIndex[showFretTextView1.y]!!)
-        val answer1 = questionToAnswer(question1)
-        val showFretTextView2 = findViewById<TextView>(R.id.fret2)
-        val question2: Array<Int> = arrayOf(showFretTextView2.text.toString().toInt(), getStringPositionIndex[showFretTextView2.y]!!)
-        val answer2 = questionToAnswer(question2)
-        val showFretTextView3 = findViewById<TextView>(R.id.fret3)
-        val question3: Array<Int> = arrayOf(showFretTextView3.text.toString().toInt(), getStringPositionIndex[showFretTextView3.y]!!)
-        val answer3 = questionToAnswer(question3)
-        val showFretTextView4 = findViewById<TextView>(R.id.fret4)
-        val question4: Array<Int> = arrayOf(showFretTextView4.text.toString().toInt(), getStringPositionIndex[showFretTextView4.y]!!)
-        val answer4 = questionToAnswer(question4)
-        val showFretTextView5 = findViewById<TextView>(R.id.fret5)
-        val question5: Array<Int> = arrayOf(showFretTextView5.text.toString().toInt(), getStringPositionIndex[showFretTextView5.y]!!)
-        val answer5 = questionToAnswer(question5)
-        val showFretTextView6 = findViewById<TextView>(R.id.fret6)
-        val question6: Array<Int> = arrayOf(showFretTextView6.text.toString().toInt(), getStringPositionIndex[showFretTextView6.y]!!)
-        val answer6 = questionToAnswer(question6)
+        val fretIds= listOf(
+            R.id.fret1,
+            R.id.fret2,
+            R.id.fret3,
+            R.id.fret4,
+            R.id.fret5,
+            R.id.fret6
+        )
+        val submitPickerIds = listOf(
+            R.id.submitPicker1,
+            R.id.submitPicker2,
+            R.id.submitPicker3,
+            R.id.submitPicker4,
+            R.id.submitPicker5,
+            R.id.submitPicker6
+        )
+        var answers = IntArray(fretIds.size)
+        var submits = IntArray(submitPickerIds.size)
 
-        val submitPicker1 = findViewById<NumberPicker>(R.id.submitPicker1)
-        val submit1 = submitPicker1.value
-        val submitPicker2 = findViewById<NumberPicker>(R.id.submitPicker2)
-        val submit2 = submitPicker2.value
-        val submitPicker3 = findViewById<NumberPicker>(R.id.submitPicker3)
-        val submit3 = submitPicker3.value
-        val submitPicker4 = findViewById<NumberPicker>(R.id.submitPicker4)
-        val submit4 = submitPicker4.value
-        val submitPicker5 = findViewById<NumberPicker>(R.id.submitPicker5)
-        val submit5 = submitPicker5.value
-        val submitPicker6 = findViewById<NumberPicker>(R.id.submitPicker6)
-        val submit6 = submitPicker6.value
+        fretIds.map { findViewById<TextView>(it) }.forEachIndexed { idx, it ->
+            val question: Array<Int> = arrayOf(it.text.toString().toInt(), getStringPositionIndex[it.y]!!)
+            answers[idx] = questionToAnswer(question)
+        }
+
+        submitPickerIds.map { findViewById<NumberPicker>(it) }.forEachIndexed { idx, it ->
+            submits[idx] = it.value
+        }
 
         fun isCorrectSubmit(submit: Int, answer: Int): Int = if (answer == submit) 1 else 0
-        val correctNum: Int = isCorrectSubmit(submit1, answer1) + isCorrectSubmit(submit2, answer2) + isCorrectSubmit(submit3, answer3) + isCorrectSubmit(submit4, answer4) + isCorrectSubmit(submit5, answer5) + isCorrectSubmit(submit6, answer6)
+        val correctNum: Int = (0 until answers.size).sumBy { isCorrectSubmit(answers[it], submits[it]) }
 
         val scoreTextView = findViewById<TextView>(R.id.textViewScore)
-        scoreTextView.text = "SCORE: ${correctNum.toString()}/6"
+        scoreTextView.text = "SCORE: $correctNum/${answers.size}"
     }
 
     fun questionToAnswer(question: Array<Int>): Int {

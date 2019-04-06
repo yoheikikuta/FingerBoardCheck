@@ -5,8 +5,6 @@ import android.os.Bundle
 import android.view.View
 import android.widget.NumberPicker
 import android.widget.TextView
-import android.widget.Toast
-import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,54 +13,21 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val submitCandidates: Array<String> = arrayOf("NA","ド", "レ", "ミ", "ファ", "ソ", "ラ", "シ")
+        val submitPickerIds = listOf(
+            R.id.submitPicker1,
+            R.id.submitPicker2,
+            R.id.submitPicker3,
+            R.id.submitPicker4,
+            R.id.submitPicker5,
+            R.id.submitPicker6
+        )
 
-        val submitPicker1 = findViewById<NumberPicker>(R.id.submitPicker1)
-        if (submitPicker1 != null) {
-            val values = submitCandidates
-            submitPicker1.minValue = 0
-            submitPicker1.maxValue = values.size - 1
-            submitPicker1.displayedValues = values
-            submitPicker1.wrapSelectorWheel = true
-        }
-        val submitPicker2 = findViewById<NumberPicker>(R.id.submitPicker2)
-        if (submitPicker2 != null) {
-            val values = submitCandidates
-            submitPicker2.minValue = 0
-            submitPicker2.maxValue = values.size - 1
-            submitPicker2.displayedValues = values
-            submitPicker2.wrapSelectorWheel = true
-        }
-        val submitPicker3 = findViewById<NumberPicker>(R.id.submitPicker3)
-        if (submitPicker3 != null) {
-            val values = submitCandidates
-            submitPicker3.minValue = 0
-            submitPicker3.maxValue = values.size - 1
-            submitPicker3.displayedValues = values
-            submitPicker3.wrapSelectorWheel = true
-        }
-        val submitPicker4 = findViewById<NumberPicker>(R.id.submitPicker4)
-        if (submitPicker4 != null) {
-            val values = submitCandidates
-            submitPicker4.minValue = 0
-            submitPicker4.maxValue = values.size - 1
-            submitPicker4.displayedValues = values
-            submitPicker4.wrapSelectorWheel = true
-        }
-        val submitPicker5 = findViewById<NumberPicker>(R.id.submitPicker5)
-        if (submitPicker5 != null) {
-            val values = submitCandidates
-            submitPicker5.minValue = 0
-            submitPicker5.maxValue = values.size - 1
-            submitPicker5.displayedValues = values
-            submitPicker5.wrapSelectorWheel = true
-        }
-        val submitPicker6 = findViewById<NumberPicker>(R.id.submitPicker6)
-        if (submitPicker6 != null) {
-            val values = submitCandidates
-            submitPicker6.minValue = 0
-            submitPicker6.maxValue = values.size - 1
-            submitPicker6.displayedValues = values
-            submitPicker6.wrapSelectorWheel = true
+        submitPickerIds.map { findViewById<NumberPicker>(it) }.forEach {
+            val submitPicker = it
+            submitPicker!!.minValue = 0
+            submitPicker.maxValue = submitCandidates.size - 1
+            submitPicker.displayedValues = submitCandidates
+            submitPicker.wrapSelectorWheel = true
         }
     }
 

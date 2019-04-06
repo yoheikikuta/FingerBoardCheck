@@ -29,11 +29,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun setFingerPrint(view: View) {
-        val randomFretValues = List(6) { Random.nextInt(0,12+1) }
+        val randomFretValues = (0..13).shuffled().slice(0..6)
         val sortedFretValues = randomFretValues.sorted()
-        val randomStringPositionValues = List(6) { Random.nextInt(1,6+1) }
+        val randomStringPositionValues = List(6) { Random.nextInt(0,6) }
         val getStringPositionCoordinates: HashMap<Int, Float> = hashMapOf<Int,Float>(
-            1 to 100f, 2 to 200f, 3 to 300f, 4 to 400f, 5 to 500f, 6 to 600f
+            0 to 25f, 1 to 150f, 2 to 270f, 3 to 420f, 4 to 550f, 5 to 670f
         )
 
         val showFretTextView1 = findViewById<TextView>(R.id.fret1)
@@ -54,5 +54,24 @@ class MainActivity : AppCompatActivity() {
         showFretTextView5.y = getStringPositionCoordinates[randomStringPositionValues[4]]!!
         showFretTextView6.text = sortedFretValues[5].toString()
         showFretTextView6.y = getStringPositionCoordinates[randomStringPositionValues[5]]!!
+    }
+
+    fun submitAnswer(view: View) {
+        val getStringPositionIndex: HashMap<Float, Int> = hashMapOf<Float, Int>(
+            25f to 0, 150f to 1, 270f to 2, 420f to 3, 550f to 4, 670f to 5
+        )
+        val showFretTextView1 = findViewById<TextView>(R.id.fret1)
+        val question1: Array<Int> = arrayOf(
+            showFretTextView1.text.toString().toInt(),
+            getStringPositionIndex[showFretTextView1.y]!!
+        )
+
+        val numberPicker = findViewById<NumberPicker>(R.id.numberPicker)
+        val answer1 = numberPicker.value
+
+        val correctNum: Int = if (question1[1] == answer1) 1 else 0
+
+        val scoreTextView = findViewById<TextView>(R.id.textViewScore)
+        scoreTextView.text = "SCORE: ${correctNum.toString()}/6"
     }
 }

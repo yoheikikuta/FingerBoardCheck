@@ -23,10 +23,6 @@ class MainActivity : AppCompatActivity() {
             submitPicker1.maxValue = values.size - 1
             submitPicker1.displayedValues = values
             submitPicker1.wrapSelectorWheel = true
-            submitPicker1.setOnValueChangedListener { picker, oldVal, newVal ->
-                val text = "Changed from " + values[oldVal] + " to " + values[newVal]
-                Toast.makeText(this@MainActivity, text, Toast.LENGTH_SHORT).show()
-            }
         }
         val submitPicker2 = findViewById<NumberPicker>(R.id.submitPicker2)
         if (submitPicker2 != null) {
@@ -35,10 +31,6 @@ class MainActivity : AppCompatActivity() {
             submitPicker2.maxValue = values.size - 1
             submitPicker2.displayedValues = values
             submitPicker2.wrapSelectorWheel = true
-            submitPicker2.setOnValueChangedListener { picker, oldVal, newVal ->
-                val text = "Changed from " + values[oldVal] + " to " + values[newVal]
-                Toast.makeText(this@MainActivity, text, Toast.LENGTH_SHORT).show()
-            }
         }
         val submitPicker3 = findViewById<NumberPicker>(R.id.submitPicker3)
         if (submitPicker3 != null) {
@@ -47,10 +39,6 @@ class MainActivity : AppCompatActivity() {
             submitPicker3.maxValue = values.size - 1
             submitPicker3.displayedValues = values
             submitPicker3.wrapSelectorWheel = true
-            submitPicker3.setOnValueChangedListener { picker, oldVal, newVal ->
-                val text = "Changed from " + values[oldVal] + " to " + values[newVal]
-                Toast.makeText(this@MainActivity, text, Toast.LENGTH_SHORT).show()
-            }
         }
         val submitPicker4 = findViewById<NumberPicker>(R.id.submitPicker4)
         if (submitPicker4 != null) {
@@ -59,10 +47,6 @@ class MainActivity : AppCompatActivity() {
             submitPicker4.maxValue = values.size - 1
             submitPicker4.displayedValues = values
             submitPicker4.wrapSelectorWheel = true
-            submitPicker4.setOnValueChangedListener { picker, oldVal, newVal ->
-                val text = "Changed from " + values[oldVal] + " to " + values[newVal]
-                Toast.makeText(this@MainActivity, text, Toast.LENGTH_SHORT).show()
-            }
         }
         val submitPicker5 = findViewById<NumberPicker>(R.id.submitPicker5)
         if (submitPicker5 != null) {
@@ -71,10 +55,6 @@ class MainActivity : AppCompatActivity() {
             submitPicker5.maxValue = values.size - 1
             submitPicker5.displayedValues = values
             submitPicker5.wrapSelectorWheel = true
-            submitPicker5.setOnValueChangedListener { picker, oldVal, newVal ->
-                val text = "Changed from " + values[oldVal] + " to " + values[newVal]
-                Toast.makeText(this@MainActivity, text, Toast.LENGTH_SHORT).show()
-            }
         }
         val submitPicker6 = findViewById<NumberPicker>(R.id.submitPicker6)
         if (submitPicker6 != null) {
@@ -83,10 +63,6 @@ class MainActivity : AppCompatActivity() {
             submitPicker6.maxValue = values.size - 1
             submitPicker6.displayedValues = values
             submitPicker6.wrapSelectorWheel = true
-            submitPicker6.setOnValueChangedListener { picker, oldVal, newVal ->
-                val text = "Changed from " + values[oldVal] + " to " + values[newVal]
-                Toast.makeText(this@MainActivity, text, Toast.LENGTH_SHORT).show()
-            }
         }
     }
 

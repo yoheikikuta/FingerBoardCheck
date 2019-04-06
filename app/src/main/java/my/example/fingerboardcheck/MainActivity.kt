@@ -23,11 +23,10 @@ class MainActivity : AppCompatActivity() {
         )
 
         submitPickerIds.map { findViewById<NumberPicker>(it) }.forEach {
-            val submitPicker = it
-            submitPicker!!.minValue = 0
-            submitPicker.maxValue = submitCandidates.size - 1
-            submitPicker.displayedValues = submitCandidates
-            submitPicker.wrapSelectorWheel = true
+            it!!.minValue = 0
+            it.maxValue = submitCandidates.size - 1
+            it.displayedValues = submitCandidates
+            it.wrapSelectorWheel = true
         }
     }
 

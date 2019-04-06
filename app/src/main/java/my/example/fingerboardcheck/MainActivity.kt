@@ -14,14 +14,76 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val numberPicker = findViewById<NumberPicker>(R.id.numberPicker)
-        if (numberPicker != null) {
-            val values = arrayOf("ド", "レ", "ミ", "ファ", "ソ", "ラ", "シ")
-            numberPicker.minValue = 0
-            numberPicker.maxValue = values.size - 1
-            numberPicker.displayedValues = values
-            numberPicker.wrapSelectorWheel = true
-            numberPicker.setOnValueChangedListener { picker, oldVal, newVal ->
+        val submitCandidates: Array<String> = arrayOf("NA","ド", "レ", "ミ", "ファ", "ソ", "ラ", "シ")
+
+        val submitPicker1 = findViewById<NumberPicker>(R.id.submitPicker1)
+        if (submitPicker1 != null) {
+            val values = submitCandidates
+            submitPicker1.minValue = 0
+            submitPicker1.maxValue = values.size - 1
+            submitPicker1.displayedValues = values
+            submitPicker1.wrapSelectorWheel = true
+            submitPicker1.setOnValueChangedListener { picker, oldVal, newVal ->
+                val text = "Changed from " + values[oldVal] + " to " + values[newVal]
+                Toast.makeText(this@MainActivity, text, Toast.LENGTH_SHORT).show()
+            }
+        }
+        val submitPicker2 = findViewById<NumberPicker>(R.id.submitPicker2)
+        if (submitPicker2 != null) {
+            val values = submitCandidates
+            submitPicker2.minValue = 0
+            submitPicker2.maxValue = values.size - 1
+            submitPicker2.displayedValues = values
+            submitPicker2.wrapSelectorWheel = true
+            submitPicker2.setOnValueChangedListener { picker, oldVal, newVal ->
+                val text = "Changed from " + values[oldVal] + " to " + values[newVal]
+                Toast.makeText(this@MainActivity, text, Toast.LENGTH_SHORT).show()
+            }
+        }
+        val submitPicker3 = findViewById<NumberPicker>(R.id.submitPicker3)
+        if (submitPicker3 != null) {
+            val values = submitCandidates
+            submitPicker3.minValue = 0
+            submitPicker3.maxValue = values.size - 1
+            submitPicker3.displayedValues = values
+            submitPicker3.wrapSelectorWheel = true
+            submitPicker3.setOnValueChangedListener { picker, oldVal, newVal ->
+                val text = "Changed from " + values[oldVal] + " to " + values[newVal]
+                Toast.makeText(this@MainActivity, text, Toast.LENGTH_SHORT).show()
+            }
+        }
+        val submitPicker4 = findViewById<NumberPicker>(R.id.submitPicker4)
+        if (submitPicker4 != null) {
+            val values = submitCandidates
+            submitPicker4.minValue = 0
+            submitPicker4.maxValue = values.size - 1
+            submitPicker4.displayedValues = values
+            submitPicker4.wrapSelectorWheel = true
+            submitPicker4.setOnValueChangedListener { picker, oldVal, newVal ->
+                val text = "Changed from " + values[oldVal] + " to " + values[newVal]
+                Toast.makeText(this@MainActivity, text, Toast.LENGTH_SHORT).show()
+            }
+        }
+        val submitPicker5 = findViewById<NumberPicker>(R.id.submitPicker5)
+        if (submitPicker5 != null) {
+            val values = submitCandidates
+            submitPicker5.minValue = 0
+            submitPicker5.maxValue = values.size - 1
+            submitPicker5.displayedValues = values
+            submitPicker5.wrapSelectorWheel = true
+            submitPicker5.setOnValueChangedListener { picker, oldVal, newVal ->
+                val text = "Changed from " + values[oldVal] + " to " + values[newVal]
+                Toast.makeText(this@MainActivity, text, Toast.LENGTH_SHORT).show()
+            }
+        }
+        val submitPicker6 = findViewById<NumberPicker>(R.id.submitPicker6)
+        if (submitPicker6 != null) {
+            val values = submitCandidates
+            submitPicker6.minValue = 0
+            submitPicker6.maxValue = values.size - 1
+            submitPicker6.displayedValues = values
+            submitPicker6.wrapSelectorWheel = true
+            submitPicker6.setOnValueChangedListener { picker, oldVal, newVal ->
                 val text = "Changed from " + values[oldVal] + " to " + values[newVal]
                 Toast.makeText(this@MainActivity, text, Toast.LENGTH_SHORT).show()
             }
@@ -61,17 +123,171 @@ class MainActivity : AppCompatActivity() {
             25f to 0, 150f to 1, 270f to 2, 420f to 3, 550f to 4, 670f to 5
         )
         val showFretTextView1 = findViewById<TextView>(R.id.fret1)
-        val question1: Array<Int> = arrayOf(
-            showFretTextView1.text.toString().toInt(),
-            getStringPositionIndex[showFretTextView1.y]!!
-        )
+        val question1: Array<Int> = arrayOf(showFretTextView1.text.toString().toInt(), getStringPositionIndex[showFretTextView1.y]!!)
+        val answer1 = questionToAnswer(question1)
+        val showFretTextView2 = findViewById<TextView>(R.id.fret2)
+        val question2: Array<Int> = arrayOf(showFretTextView2.text.toString().toInt(), getStringPositionIndex[showFretTextView2.y]!!)
+        val answer2 = questionToAnswer(question2)
+        val showFretTextView3 = findViewById<TextView>(R.id.fret3)
+        val question3: Array<Int> = arrayOf(showFretTextView3.text.toString().toInt(), getStringPositionIndex[showFretTextView3.y]!!)
+        val answer3 = questionToAnswer(question3)
+        val showFretTextView4 = findViewById<TextView>(R.id.fret4)
+        val question4: Array<Int> = arrayOf(showFretTextView4.text.toString().toInt(), getStringPositionIndex[showFretTextView4.y]!!)
+        val answer4 = questionToAnswer(question4)
+        val showFretTextView5 = findViewById<TextView>(R.id.fret5)
+        val question5: Array<Int> = arrayOf(showFretTextView5.text.toString().toInt(), getStringPositionIndex[showFretTextView5.y]!!)
+        val answer5 = questionToAnswer(question5)
+        val showFretTextView6 = findViewById<TextView>(R.id.fret6)
+        val question6: Array<Int> = arrayOf(showFretTextView6.text.toString().toInt(), getStringPositionIndex[showFretTextView6.y]!!)
+        val answer6 = questionToAnswer(question6)
 
-        val numberPicker = findViewById<NumberPicker>(R.id.numberPicker)
-        val answer1 = numberPicker.value
+        val submitPicker1 = findViewById<NumberPicker>(R.id.submitPicker1)
+        val submit1 = submitPicker1.value
+        val submitPicker2 = findViewById<NumberPicker>(R.id.submitPicker2)
+        val submit2 = submitPicker2.value
+        val submitPicker3 = findViewById<NumberPicker>(R.id.submitPicker3)
+        val submit3 = submitPicker3.value
+        val submitPicker4 = findViewById<NumberPicker>(R.id.submitPicker4)
+        val submit4 = submitPicker4.value
+        val submitPicker5 = findViewById<NumberPicker>(R.id.submitPicker5)
+        val submit5 = submitPicker5.value
+        val submitPicker6 = findViewById<NumberPicker>(R.id.submitPicker6)
+        val submit6 = submitPicker6.value
 
-        val correctNum: Int = if (question1[1] == answer1) 1 else 0
+        fun isCorrectSubmit(submit: Int, answer: Int): Int = if (answer == submit) 1 else 0
+        val correctNum: Int = isCorrectSubmit(submit1, answer1) + isCorrectSubmit(submit2, answer2) + isCorrectSubmit(submit3, answer3) + isCorrectSubmit(submit4, answer4) + isCorrectSubmit(submit5, answer5) + isCorrectSubmit(submit6, answer6)
 
         val scoreTextView = findViewById<TextView>(R.id.textViewScore)
         scoreTextView.text = "SCORE: ${correctNum.toString()}/6"
+    }
+
+    fun questionToAnswer(question: Array<Int>): Int {
+        val scaleToInt: HashMap<String, Int> = hashMapOf<String,Int>(
+            "NA" to 0, "ド" to 1, "レ" to 2, "ミ" to 3, "ファ" to 4, "ソ" to 5, "ラ" to 6, "シ" to 7
+        )
+        var answer = 0
+
+        val (fretPos, stringPos) = question
+        answer = when (fretPos) {
+            0 -> when (stringPos) {
+                0 -> scaleToInt["ミ"]!!
+                1 -> scaleToInt["シ"]!!
+                2 -> scaleToInt["ソ"]!!
+                3 -> scaleToInt["レ"]!!
+                4 -> scaleToInt["ラ"]!!
+                5 -> scaleToInt["ミ"]!!
+                else -> scaleToInt["NA"]!!
+                }
+            1 -> when (stringPos) {
+                0 -> scaleToInt["ファ"]!!
+                1 -> scaleToInt["ド"]!!
+                2 -> scaleToInt["NA"]!!
+                3 -> scaleToInt["NA"]!!
+                4 -> scaleToInt["NA"]!!
+                5 -> scaleToInt["ファ"]!!
+                else -> scaleToInt["NA"]!!
+            }
+            2 -> when (stringPos) {
+                0 -> scaleToInt["NA"]!!
+                1 -> scaleToInt["NA"]!!
+                2 -> scaleToInt["ラ"]!!
+                3 -> scaleToInt["ミ"]!!
+                4 -> scaleToInt["シ"]!!
+                5 -> scaleToInt["NA"]!!
+                else -> scaleToInt["NA"]!!
+            }
+            3 -> when (stringPos) {
+                0 -> scaleToInt["ソ"]!!
+                1 -> scaleToInt["レ"]!!
+                2 -> scaleToInt["NA"]!!
+                3 -> scaleToInt["ファ"]!!
+                4 -> scaleToInt["ド"]!!
+                5 -> scaleToInt["ソ"]!!
+                else -> scaleToInt["NA"]!!
+            }
+            4 -> when (stringPos) {
+                0 -> scaleToInt["NA"]!!
+                1 -> scaleToInt["NA"]!!
+                2 -> scaleToInt["シ"]!!
+                3 -> scaleToInt["NA"]!!
+                4 -> scaleToInt["NA"]!!
+                5 -> scaleToInt["NA"]!!
+                else -> scaleToInt["NA"]!!
+            }
+            5 -> when (stringPos) {
+                0 -> scaleToInt["ラ"]!!
+                1 -> scaleToInt["ミ"]!!
+                2 -> scaleToInt["ド"]!!
+                3 -> scaleToInt["ソ"]!!
+                4 -> scaleToInt["レ"]!!
+                5 -> scaleToInt["ラ"]!!
+                else -> scaleToInt["NA"]!!
+            }
+            6 -> when (stringPos) {
+                0 -> scaleToInt["NA"]!!
+                1 -> scaleToInt["ファ"]!!
+                2 -> scaleToInt["NA"]!!
+                3 -> scaleToInt["NA"]!!
+                4 -> scaleToInt["NA"]!!
+                5 -> scaleToInt["NA"]!!
+                else -> scaleToInt["NA"]!!
+            }
+            7 -> when (stringPos) {
+                0 -> scaleToInt["シ"]!!
+                1 -> scaleToInt["NA"]!!
+                2 -> scaleToInt["レ"]!!
+                3 -> scaleToInt["ラ"]!!
+                4 -> scaleToInt["ミ"]!!
+                5 -> scaleToInt["シ"]!!
+                else -> scaleToInt["NA"]!!
+            }
+            8 -> when (stringPos) {
+                0 -> scaleToInt["ド"]!!
+                1 -> scaleToInt["ソ"]!!
+                2 -> scaleToInt["NA"]!!
+                3 -> scaleToInt["NA"]!!
+                4 -> scaleToInt["ファ"]!!
+                5 -> scaleToInt["ド"]!!
+                else -> scaleToInt["NA"]!!
+            }
+            9 -> when (stringPos) {
+                0 -> scaleToInt["NA"]!!
+                1 -> scaleToInt["NA"]!!
+                2 -> scaleToInt["ミ"]!!
+                3 -> scaleToInt["シ"]!!
+                4 -> scaleToInt["NA"]!!
+                5 -> scaleToInt["NA"]!!
+                else -> scaleToInt["NA"]!!
+            }
+            10 -> when (stringPos) {
+                0 -> scaleToInt["レ"]!!
+                1 -> scaleToInt["ラ"]!!
+                2 -> scaleToInt["ファ"]!!
+                3 -> scaleToInt["ド"]!!
+                4 -> scaleToInt["ソ"]!!
+                5 -> scaleToInt["レ"]!!
+                else -> scaleToInt["NA"]!!
+            }
+            11 -> when (stringPos) {
+                0 -> scaleToInt["NA"]!!
+                1 -> scaleToInt["NA"]!!
+                2 -> scaleToInt["NA"]!!
+                3 -> scaleToInt["NA"]!!
+                4 -> scaleToInt["NA"]!!
+                5 -> scaleToInt["NA"]!!
+                else -> scaleToInt["NA"]!!
+            }
+            12 -> when (stringPos) {
+                0 -> scaleToInt["ミ"]!!
+                1 -> scaleToInt["シ"]!!
+                2 -> scaleToInt["ソ"]!!
+                3 -> scaleToInt["レ"]!!
+                4 -> scaleToInt["ラ"]!!
+                5 -> scaleToInt["ミ"]!!
+                else -> scaleToInt["NA"]!!
+            }
+            else -> scaleToInt["NA"]!!
+        }
+        return answer
     }
 }

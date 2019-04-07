@@ -9,11 +9,11 @@ import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
 
+    val submitCandidates: Array<String> = arrayOf("NA","ド", "ド♯", "レ", "レ♯", "ミ", "ファ",  "ファ♯","ソ", "ソ♯","ラ","ラ♯", "シ")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val submitCandidates: Array<String> = arrayOf("NA","ド", "レ", "ミ", "ファ", "ソ", "ラ", "シ")
         val submitPickerIds = listOf(
             R.id.submitPicker1,
             R.id.submitPicker2,
@@ -100,128 +100,106 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun questionToAnswer(question: Array<Int>): Int {
-        val scaleToInt: HashMap<String, Int> = hashMapOf<String,Int>(
-            "NA" to 0, "ド" to 1, "レ" to 2, "ミ" to 3, "ファ" to 4, "ソ" to 5, "ラ" to 6, "シ" to 7
-        )
+        val scaleToInt = submitCandidates.withIndex().map {(index,degree) -> degree to index}.toMap()
         var answer = 0
 
         val (fretPos, stringPos) = question
-        answer = when (fretPos) {
-            0 -> when (stringPos) {
+
+        answer = when(stringPos) {
+            0 -> when(fretPos) {
                 0 -> scaleToInt["ミ"]!!
-                1 -> scaleToInt["シ"]!!
-                2 -> scaleToInt["ソ"]!!
-                3 -> scaleToInt["レ"]!!
-                4 -> scaleToInt["ラ"]!!
-                5 -> scaleToInt["ミ"]!!
-                else -> scaleToInt["NA"]!!
-                }
-            1 -> when (stringPos) {
-                0 -> scaleToInt["ファ"]!!
-                1 -> scaleToInt["ド"]!!
-                2 -> scaleToInt["NA"]!!
-                3 -> scaleToInt["NA"]!!
-                4 -> scaleToInt["NA"]!!
-                5 -> scaleToInt["ファ"]!!
-                else -> scaleToInt["NA"]!!
-            }
-            2 -> when (stringPos) {
-                0 -> scaleToInt["NA"]!!
-                1 -> scaleToInt["NA"]!!
-                2 -> scaleToInt["ラ"]!!
-                3 -> scaleToInt["ミ"]!!
-                4 -> scaleToInt["シ"]!!
-                5 -> scaleToInt["NA"]!!
-                else -> scaleToInt["NA"]!!
-            }
-            3 -> when (stringPos) {
-                0 -> scaleToInt["ソ"]!!
-                1 -> scaleToInt["レ"]!!
-                2 -> scaleToInt["NA"]!!
-                3 -> scaleToInt["ファ"]!!
-                4 -> scaleToInt["ド"]!!
-                5 -> scaleToInt["ソ"]!!
-                else -> scaleToInt["NA"]!!
-            }
-            4 -> when (stringPos) {
-                0 -> scaleToInt["NA"]!!
-                1 -> scaleToInt["NA"]!!
-                2 -> scaleToInt["シ"]!!
-                3 -> scaleToInt["NA"]!!
-                4 -> scaleToInt["NA"]!!
-                5 -> scaleToInt["NA"]!!
-                else -> scaleToInt["NA"]!!
-            }
-            5 -> when (stringPos) {
-                0 -> scaleToInt["ラ"]!!
-                1 -> scaleToInt["ミ"]!!
-                2 -> scaleToInt["ド"]!!
-                3 -> scaleToInt["ソ"]!!
-                4 -> scaleToInt["レ"]!!
-                5 -> scaleToInt["ラ"]!!
-                else -> scaleToInt["NA"]!!
-            }
-            6 -> when (stringPos) {
-                0 -> scaleToInt["NA"]!!
                 1 -> scaleToInt["ファ"]!!
-                2 -> scaleToInt["NA"]!!
-                3 -> scaleToInt["NA"]!!
-                4 -> scaleToInt["NA"]!!
-                5 -> scaleToInt["NA"]!!
+                2 -> scaleToInt["ファ♯"]!!
+                3 -> scaleToInt["ソ"]!!
+                4 -> scaleToInt["ソ♯"]!!
+                5 -> scaleToInt["ラ"]!!
+                6 -> scaleToInt["ラ♯"]!!
+                7 -> scaleToInt["シ"]!!
+                8 -> scaleToInt["ド"]!!
+                9 -> scaleToInt["ド♯"]!!
+                10 -> scaleToInt["レ"]!!
+                11 -> scaleToInt["レ♯"]!!
+                12 -> scaleToInt["ミ"]!!
                 else -> scaleToInt["NA"]!!
             }
-            7 -> when (stringPos) {
+            1 -> when(fretPos) {
                 0 -> scaleToInt["シ"]!!
-                1 -> scaleToInt["NA"]!!
-                2 -> scaleToInt["レ"]!!
-                3 -> scaleToInt["ラ"]!!
-                4 -> scaleToInt["ミ"]!!
-                5 -> scaleToInt["シ"]!!
-                else -> scaleToInt["NA"]!!
-            }
-            8 -> when (stringPos) {
-                0 -> scaleToInt["ド"]!!
-                1 -> scaleToInt["ソ"]!!
-                2 -> scaleToInt["NA"]!!
-                3 -> scaleToInt["NA"]!!
-                4 -> scaleToInt["ファ"]!!
-                5 -> scaleToInt["ド"]!!
-                else -> scaleToInt["NA"]!!
-            }
-            9 -> when (stringPos) {
-                0 -> scaleToInt["NA"]!!
-                1 -> scaleToInt["NA"]!!
-                2 -> scaleToInt["ミ"]!!
-                3 -> scaleToInt["シ"]!!
-                4 -> scaleToInt["NA"]!!
-                5 -> scaleToInt["NA"]!!
-                else -> scaleToInt["NA"]!!
-            }
-            10 -> when (stringPos) {
-                0 -> scaleToInt["レ"]!!
-                1 -> scaleToInt["ラ"]!!
-                2 -> scaleToInt["ファ"]!!
-                3 -> scaleToInt["ド"]!!
-                4 -> scaleToInt["ソ"]!!
-                5 -> scaleToInt["レ"]!!
-                else -> scaleToInt["NA"]!!
-            }
-            11 -> when (stringPos) {
-                0 -> scaleToInt["NA"]!!
-                1 -> scaleToInt["NA"]!!
-                2 -> scaleToInt["NA"]!!
-                3 -> scaleToInt["NA"]!!
-                4 -> scaleToInt["NA"]!!
-                5 -> scaleToInt["NA"]!!
-                else -> scaleToInt["NA"]!!
-            }
-            12 -> when (stringPos) {
-                0 -> scaleToInt["ミ"]!!
-                1 -> scaleToInt["シ"]!!
-                2 -> scaleToInt["ソ"]!!
+                1 -> scaleToInt["ド"]!!
+                2 -> scaleToInt["ド♯"]!!
                 3 -> scaleToInt["レ"]!!
-                4 -> scaleToInt["ラ"]!!
+                4 -> scaleToInt["レ♯"]!!
                 5 -> scaleToInt["ミ"]!!
+                6 -> scaleToInt["ファ"]!!
+                7 -> scaleToInt["ファ♯"]!!
+                8 -> scaleToInt["ソ"]!!
+                9 -> scaleToInt["ソ♯"]!!
+                10 -> scaleToInt["ラ"]!!
+                11 -> scaleToInt["ラ♯"]!!
+                12 -> scaleToInt["シ"]!!
+                else -> scaleToInt["NA"]!!
+            }
+            2 -> when(fretPos) {
+                0 -> scaleToInt["ソ"]!!
+                1 -> scaleToInt["ソ♯"]!!
+                2 -> scaleToInt["ラ"]!!
+                3 -> scaleToInt["ラ♯"]!!
+                4 -> scaleToInt["シ"]!!
+                5 -> scaleToInt["ド"]!!
+                6 -> scaleToInt["ド♯"]!!
+                7 -> scaleToInt["レ"]!!
+                8 -> scaleToInt["レ♯"]!!
+                9 -> scaleToInt["ミ"]!!
+                10 -> scaleToInt["ファ"]!!
+                11 -> scaleToInt["ファ♯"]!!
+                12 -> scaleToInt["ソ"]!!
+                else -> scaleToInt["NA"]!!
+            }
+            3 -> when(fretPos) {
+                0 -> scaleToInt["レ"]!!
+                1 -> scaleToInt["レ♯"]!!
+                2 -> scaleToInt["ミ"]!!
+                3 -> scaleToInt["ファ"]!!
+                4 -> scaleToInt["ファ♯"]!!
+                5 -> scaleToInt["ソ"]!!
+                6 -> scaleToInt["ソ♯"]!!
+                7 -> scaleToInt["ラ"]!!
+                8 -> scaleToInt["ラ♯"]!!
+                9 -> scaleToInt["シ"]!!
+                10 -> scaleToInt["ド"]!!
+                11 -> scaleToInt["ド♯"]!!
+                12 -> scaleToInt["レ"]!!
+                else -> scaleToInt["NA"]!!
+            }
+            4 -> when(fretPos) {
+                0 -> scaleToInt["ラ"]!!
+                1 -> scaleToInt["ラ♯"]!!
+                2 -> scaleToInt["シ"]!!
+                3 -> scaleToInt["ド"]!!
+                4 -> scaleToInt["ド♯"]!!
+                5 -> scaleToInt["レ"]!!
+                6 -> scaleToInt["レ♯"]!!
+                7 -> scaleToInt["ミ"]!!
+                8 -> scaleToInt["ファ"]!!
+                9 -> scaleToInt["ファ♯"]!!
+                10 -> scaleToInt["ソ"]!!
+                11 -> scaleToInt["ソ♯"]!!
+                12 -> scaleToInt["ラ"]!!
+                else -> scaleToInt["NA"]!!
+            }
+            5 -> when(fretPos) {
+                0 -> scaleToInt["ミ"]!!
+                1 -> scaleToInt["ファ"]!!
+                2 -> scaleToInt["ファ♯"]!!
+                3 -> scaleToInt["ソ"]!!
+                4 -> scaleToInt["ソ♯"]!!
+                5 -> scaleToInt["ラ"]!!
+                6 -> scaleToInt["ラ♯"]!!
+                7 -> scaleToInt["シ"]!!
+                8 -> scaleToInt["ド"]!!
+                9 -> scaleToInt["ド♯"]!!
+                10 -> scaleToInt["レ"]!!
+                11 -> scaleToInt["レ♯"]!!
+                12 -> scaleToInt["ミ"]!!
                 else -> scaleToInt["NA"]!!
             }
             else -> scaleToInt["NA"]!!

@@ -1,14 +1,23 @@
 package my.example.fingerboardcheck
 
 import android.annotation.SuppressLint
+import android.app.Dialog
 import android.graphics.Rect
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.NumberPicker
 import android.widget.TextView
+import android.content.DialogInterface
+import android.support.v7.app.AlertDialog
+import android.webkit.WebView
+
+
 
 class MainActivity : AppCompatActivity() {
+    val DIALOG_ID_INFO = 1
 
     val submitCandidates: Array<String> = arrayOf("NA","ド", "ド♯", "レ", "レ♯", "ミ", "ファ",  "ファ♯","ソ", "ソ♯","ラ","ラ♯", "シ")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,6 +39,31 @@ class MainActivity : AppCompatActivity() {
             it.displayedValues = submitCandidates
             it.wrapSelectorWheel = true
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(item.itemId == R.id.item_info) {
+            showDialog(DIALOG_ID_INFO)
+            return true
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    override fun onCreateDialog(id: Int): Dialog {
+        if(id == DIALOG_ID_INFO) {
+            val webView = WebView(this)
+            webView.loadUrl("file:///android_asset/fretboard.html")
+            return AlertDialog.Builder(this).setTitle("Fretboard")
+                .setView(webView)
+                .setPositiveButton(android.R.string.ok,
+                    DialogInterface.OnClickListener { dialog, whichButton -> dialog.dismiss() }).create()
+        }
+        return super.onCreateDialog(id)
     }
 
     fun setFingerPrint(view: View) {

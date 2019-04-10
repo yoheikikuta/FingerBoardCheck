@@ -37,6 +37,15 @@ class MainActivity : AppCompatActivity() {
         val sortedFretValues = randomFretValues.sorted()
         val randomStringPositionValues = (0..5).shuffled().toList()
         val getStringPositionCoordinates: HashMap<Int, Float> = makeHashMapOfGuitarStringIdToYPosition()
+        val fretIds= listOf(
+            R.id.fret1,
+            R.id.fret2,
+            R.id.fret3,
+            R.id.fret4,
+            R.id.fret5,
+            R.id.fret6
+        )
+        setDefaultBackground(fretIds)
 
         val showFretTextView1 = findViewById<TextView>(R.id.fret1)
         val showFretTextView2 = findViewById<TextView>(R.id.fret2)
@@ -132,6 +141,10 @@ class MainActivity : AppCompatActivity() {
 
         val scoreTextView = findViewById<TextView>(R.id.textViewScore)
         scoreTextView.text = "SCORE: $correctNum/${answers.size}"
+    }
+
+    fun setDefaultBackground(fretIds: List<Int>) {
+        fretIds.map { findViewById<TextView>(it) }.forEach { it.setBackgroundResource(R.drawable.textbox_default) }
     }
 
     fun checkCorrectSubmits(fretIds: List<Int>, submits: IntArray, answers: IntArray) {

@@ -88,6 +88,7 @@ class MainActivity : AppCompatActivity() {
         val randomStringPositionValues = (0..5).shuffled().toList()
         val getStringPositionCoordinates: HashMap<Int, Float> = makeHashMapOfGuitarStringIdToYPosition() as HashMap<Int, Float>
 
+        setDefaultScore()
         setDefaultBackground(fretIds)
 
         fretIds.map { findViewById<TextView>(it) }.forEachIndexed { index, it ->
@@ -133,6 +134,11 @@ class MainActivity : AppCompatActivity() {
 
         val scoreTextView = findViewById<TextView>(R.id.textViewScore)
         scoreTextView.text = "SCORE: $correctNum/${answers.size}"
+    }
+
+    fun setDefaultScore() {
+        val scoreTextView = findViewById<TextView>(R.id.textViewScore)
+        scoreTextView.setText(R.string.score)
     }
 
     fun setDefaultBackground(fretIds: List<Int>) {

@@ -2,7 +2,6 @@ package my.example.fingerboardcheck
 
 import android.annotation.SuppressLint
 import android.app.Dialog
-import android.graphics.Rect
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -20,6 +19,7 @@ class MainActivity : AppCompatActivity() {
     val DIALOG_ID_INFO = 1
 
     val submitCandidates: Array<String> = arrayOf("NA", "ド", "ド♯", "レ", "レ♯", "ミ", "ファ", "ファ♯", "ソ", "ソ♯", "ラ", "ラ♯", "シ")
+
     val submitPickerIds = listOf(
         R.id.submitPicker1,
         R.id.submitPicker2,
@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity() {
         R.id.submitPicker5,
         R.id.submitPicker6
     )
+
     val fretIds= listOf(
         R.id.fret1,
         R.id.fret2,
@@ -36,6 +37,7 @@ class MainActivity : AppCompatActivity() {
         R.id.fret5,
         R.id.fret6
     )
+
     val guitarStringIds = listOf(
         R.id.guitarString1,
         R.id.guitarString2,

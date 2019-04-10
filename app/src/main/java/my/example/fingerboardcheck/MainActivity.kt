@@ -1,7 +1,6 @@
 package my.example.fingerboardcheck
 
 import android.annotation.SuppressLint
-import android.graphics.Rect
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -36,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         val randomFretValues = (0..12).shuffled().slice(0..6)
         val sortedFretValues = randomFretValues.sorted()
         val randomStringPositionValues = (0..5).shuffled().toList()
-        val getStringPositionCoordinates: HashMap<Int, Float> = makeHashMapOfGuitarStringIdToYPosition()
+        val getStringPositionCoordinates: HashMap<Int, Float> = makeHashMapOfGuitarStringIdToYPosition() as HashMap<Int, Float>
         val fretIds= listOf(
             R.id.fret1,
             R.id.fret2,
@@ -67,8 +66,7 @@ class MainActivity : AppCompatActivity() {
         showFretTextView6.y = getStringPositionCoordinates[randomStringPositionValues[5]]!!
     }
 
-    fun makeHashMapOfGuitarStringIdToYPosition(): HashMap<Int, Float> {
-        val stringIdToPositionMap:HashMap<Int,Float> = HashMap<Int,Float>()
+    fun makeHashMapOfGuitarStringIdToYPosition(): Map<Int, Float> {
         val guitarStringIds = listOf(
             R.id.guitarString1,
             R.id.guitarString2,
@@ -78,15 +76,13 @@ class MainActivity : AppCompatActivity() {
             R.id.guitarString6
         )
         val halfTextBoxHeight: Float = findViewById<TextView>(R.id.fret1).height.toFloat() / 2
-        guitarStringIds.mapIndexed { index, it ->
-            stringIdToPositionMap.put(index, findViewById<View>(it).y - halfTextBoxHeight)
-        }
 
-        return stringIdToPositionMap
+        return guitarStringIds.withIndex().map {
+                (index, id) -> index to findViewById<View>(id).y - halfTextBoxHeight
+        }.toMap()
     }
 
-    fun makeHashMapOfYPositionToGuitarStringId(): HashMap<Float, Int> {
-        val PositionToStringIdMap: HashMap<Float, Int> = HashMap<Float,Int>()
+    fun makeHashMapOfYPositionToGuitarStringId(): Map<Float, Int> {
         val guitarStringIds = listOf(
             R.id.guitarString1,
             R.id.guitarString2,
@@ -96,16 +92,15 @@ class MainActivity : AppCompatActivity() {
             R.id.guitarString6
         )
         val halfTextBoxHeight: Float = findViewById<TextView>(R.id.fret1).height.toFloat() / 2
-        guitarStringIds.mapIndexed { index, it ->
-            PositionToStringIdMap.put(findViewById<View>(it).y - halfTextBoxHeight, index)
-        }
 
-        return PositionToStringIdMap
+        return guitarStringIds.withIndex().map {
+                (index, id) -> findViewById<View>(id).y - halfTextBoxHeight to index
+        }.toMap()
     }
 
     @SuppressLint("SetTextI18n")
     fun submitAnswer(view: View) {
-        val getStringPositionIndex: HashMap<Float, Int> = makeHashMapOfYPositionToGuitarStringId()
+        val getStringPositionIndex: HashMap<Float, Int> = makeHashMapOfYPositionToGuitarStringId() as HashMap<Float, Int>
         val fretIds= listOf(
             R.id.fret1,
             R.id.fret2,

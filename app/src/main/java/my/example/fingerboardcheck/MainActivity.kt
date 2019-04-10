@@ -82,7 +82,7 @@ class MainActivity : AppCompatActivity() {
         return super.onCreateDialog(id)
     }
 
-    fun setFingerPrint(view: View) {
+    fun setProblems(view: View) {
         val randomFretValues = (0..12).shuffled().slice(0..6)
         val sortedFretValues = randomFretValues.sorted()
         val randomStringPositionValues = (0..5).shuffled().toList()
@@ -97,24 +97,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun makeHashMapOfGuitarStringIdToYPosition(): Map<Int, Float> {
-        val halfTextBoxHeight: Float = findViewById<TextView>(R.id.fret1).height.toFloat() / 2
-
-        return guitarStringIds.withIndex().map {
-                (index, id) -> index to findViewById<View>(id).y - halfTextBoxHeight
-        }.toMap()
-    }
-
-    fun makeHashMapOfYPositionToGuitarStringId(): Map<Float, Int> {
-        val halfTextBoxHeight: Float = findViewById<TextView>(R.id.fret1).height.toFloat() / 2
-
-        return guitarStringIds.withIndex().map {
-                (index, id) -> findViewById<View>(id).y - halfTextBoxHeight to index
-        }.toMap()
-    }
-
     @SuppressLint("SetTextI18n")
-    fun submitAnswer(view: View) {
+    fun submitAnswers(view: View) {
         val getStringPositionIndex: HashMap<Float, Int> = makeHashMapOfYPositionToGuitarStringId() as HashMap<Float, Int>
         var answers = IntArray(fretIds.size)
         var submits = IntArray(submitPickerIds.size)
@@ -134,6 +118,22 @@ class MainActivity : AppCompatActivity() {
 
         val scoreTextView = findViewById<TextView>(R.id.textViewScore)
         scoreTextView.text = "SCORE: $correctNum/${answers.size}"
+    }
+
+    fun makeHashMapOfGuitarStringIdToYPosition(): Map<Int, Float> {
+        val halfTextBoxHeight: Float = findViewById<TextView>(R.id.fret1).height.toFloat() / 2
+
+        return guitarStringIds.withIndex().map {
+                (index, id) -> index to findViewById<View>(id).y - halfTextBoxHeight
+        }.toMap()
+    }
+
+    fun makeHashMapOfYPositionToGuitarStringId(): Map<Float, Int> {
+        val halfTextBoxHeight: Float = findViewById<TextView>(R.id.fret1).height.toFloat() / 2
+
+        return guitarStringIds.withIndex().map {
+                (index, id) -> findViewById<View>(id).y - halfTextBoxHeight to index
+        }.toMap()
     }
 
     fun setDefaultScore() {

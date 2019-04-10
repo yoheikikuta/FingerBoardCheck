@@ -128,8 +128,17 @@ class MainActivity : AppCompatActivity() {
         fun isCorrectSubmit(submit: Int, answer: Int): Int = if (answer == submit) 1 else 0
         val correctNum: Int = (0 until answers.size).sumBy { isCorrectSubmit(answers[it], submits[it]) }
 
+        checkCorrectSubmits(fretIds, submits, answers)
+
         val scoreTextView = findViewById<TextView>(R.id.textViewScore)
         scoreTextView.text = "SCORE: $correctNum/${answers.size}"
+    }
+
+    fun checkCorrectSubmits(fretIds: List<Int>, submits: IntArray, answers: IntArray) {
+        for ((index, id) in fretIds.withIndex()) {
+            if (submits[index] == answers[index]) findViewById<TextView>(id).setBackgroundResource(R.drawable.textbox_correct)
+            else findViewById<TextView>(id).setBackgroundResource(R.drawable.textbox_incorrect)
+        }
     }
 
     fun questionToAnswer(question: Array<Int>): Int {

@@ -275,6 +275,7 @@
 
         <NumberPicker
             android:id="@+id/submitPicker1"
+            android:descendantFocusability="blocksDescendants"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
@@ -296,6 +297,7 @@
 
         <NumberPicker
             android:id="@+id/submitPicker2"
+            android:descendantFocusability="blocksDescendants"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
@@ -317,6 +319,7 @@
 
         <NumberPicker
             android:id="@+id/submitPicker3"
+            android:descendantFocusability="blocksDescendants"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
@@ -338,6 +341,7 @@
 
         <NumberPicker
             android:id="@+id/submitPicker4"
+            android:descendantFocusability="blocksDescendants"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
@@ -359,6 +363,7 @@
 
         <NumberPicker
             android:id="@+id/submitPicker5"
+            android:descendantFocusability="blocksDescendants"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
@@ -382,6 +387,7 @@
 
         <NumberPicker
             android:id="@+id/submitPicker6"
+            android:descendantFocusability="blocksDescendants"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_weight="1" />

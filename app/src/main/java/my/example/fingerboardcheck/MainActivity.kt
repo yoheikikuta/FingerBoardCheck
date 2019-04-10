@@ -119,8 +119,7 @@ class MainActivity : AppCompatActivity() {
         var submits = IntArray(submitPickerIds.size)
 
         fretIds.map { findViewById<TextView>(it) }.forEachIndexed { idx, it ->
-            val question: Array<Int> = arrayOf(it.text.toString().toInt(), getStringPositionIndex[it.y]!!)
-            answers[idx] = questionToAnswer(question)
+            answers[idx] = questionToAnswer(it.text.toString().toInt(), getStringPositionIndex[it.y]!!)
         }
 
         submitPickerIds.map { findViewById<NumberPicker>(it) }.forEachIndexed { idx, it ->
@@ -147,14 +146,10 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun questionToAnswer(question: Array<Int>): Int {
+    fun questionToAnswer(fretPos: Int, stringPos: Int): Int {
         val scaleToInt = submitCandidates.withIndex().map {(index,degree) -> degree to index}.toMap()
-        var answer = 0
-
-        val (fretPos, stringPos) = question
-
-        answer = when(stringPos) {
-            0 -> when(fretPos) {
+        var answer = when (stringPos) {
+            0 -> when (fretPos) {
                 0 -> scaleToInt["ミ"]!!
                 1 -> scaleToInt["ファ"]!!
                 2 -> scaleToInt["ファ♯"]!!
@@ -170,7 +165,7 @@ class MainActivity : AppCompatActivity() {
                 12 -> scaleToInt["ミ"]!!
                 else -> scaleToInt["NA"]!!
             }
-            1 -> when(fretPos) {
+            1 -> when (fretPos) {
                 0 -> scaleToInt["シ"]!!
                 1 -> scaleToInt["ド"]!!
                 2 -> scaleToInt["ド♯"]!!
@@ -186,7 +181,7 @@ class MainActivity : AppCompatActivity() {
                 12 -> scaleToInt["シ"]!!
                 else -> scaleToInt["NA"]!!
             }
-            2 -> when(fretPos) {
+            2 -> when (fretPos) {
                 0 -> scaleToInt["ソ"]!!
                 1 -> scaleToInt["ソ♯"]!!
                 2 -> scaleToInt["ラ"]!!
@@ -202,7 +197,7 @@ class MainActivity : AppCompatActivity() {
                 12 -> scaleToInt["ソ"]!!
                 else -> scaleToInt["NA"]!!
             }
-            3 -> when(fretPos) {
+            3 -> when (fretPos) {
                 0 -> scaleToInt["レ"]!!
                 1 -> scaleToInt["レ♯"]!!
                 2 -> scaleToInt["ミ"]!!
@@ -218,7 +213,7 @@ class MainActivity : AppCompatActivity() {
                 12 -> scaleToInt["レ"]!!
                 else -> scaleToInt["NA"]!!
             }
-            4 -> when(fretPos) {
+            4 -> when (fretPos) {
                 0 -> scaleToInt["ラ"]!!
                 1 -> scaleToInt["ラ♯"]!!
                 2 -> scaleToInt["シ"]!!
@@ -234,7 +229,7 @@ class MainActivity : AppCompatActivity() {
                 12 -> scaleToInt["ラ"]!!
                 else -> scaleToInt["NA"]!!
             }
-            5 -> when(fretPos) {
+            5 -> when (fretPos) {
                 0 -> scaleToInt["ミ"]!!
                 1 -> scaleToInt["ファ"]!!
                 2 -> scaleToInt["ファ♯"]!!

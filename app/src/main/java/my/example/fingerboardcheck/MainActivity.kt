@@ -9,19 +9,35 @@ import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
 
-    val submitCandidates: Array<String> = arrayOf("NA","ド", "ド♯", "レ", "レ♯", "ミ", "ファ",  "ファ♯","ソ", "ソ♯","ラ","ラ♯", "シ")
+    val submitCandidates: Array<String> = arrayOf("NA", "ド", "ド♯", "レ", "レ♯", "ミ", "ファ", "ファ♯", "ソ", "ソ♯", "ラ", "ラ♯", "シ")
+    val submitPickerIds = listOf(
+        R.id.submitPicker1,
+        R.id.submitPicker2,
+        R.id.submitPicker3,
+        R.id.submitPicker4,
+        R.id.submitPicker5,
+        R.id.submitPicker6
+    )
+    val fretIds= listOf(
+        R.id.fret1,
+        R.id.fret2,
+        R.id.fret3,
+        R.id.fret4,
+        R.id.fret5,
+        R.id.fret6
+    )
+    val guitarStringIds = listOf(
+        R.id.guitarString1,
+        R.id.guitarString2,
+        R.id.guitarString3,
+        R.id.guitarString4,
+        R.id.guitarString5,
+        R.id.guitarString6
+    )
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        val submitPickerIds = listOf(
-            R.id.submitPicker1,
-            R.id.submitPicker2,
-            R.id.submitPicker3,
-            R.id.submitPicker4,
-            R.id.submitPicker5,
-            R.id.submitPicker6
-        )
 
         submitPickerIds.map { findViewById<NumberPicker>(it) }.forEach {
             it!!.minValue = 0
@@ -36,14 +52,7 @@ class MainActivity : AppCompatActivity() {
         val sortedFretValues = randomFretValues.sorted()
         val randomStringPositionValues = (0..5).shuffled().toList()
         val getStringPositionCoordinates: HashMap<Int, Float> = makeHashMapOfGuitarStringIdToYPosition() as HashMap<Int, Float>
-        val fretIds= listOf(
-            R.id.fret1,
-            R.id.fret2,
-            R.id.fret3,
-            R.id.fret4,
-            R.id.fret5,
-            R.id.fret6
-        )
+
         setDefaultBackground(fretIds)
 
         val showFretTextView1 = findViewById<TextView>(R.id.fret1)
@@ -67,14 +76,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun makeHashMapOfGuitarStringIdToYPosition(): Map<Int, Float> {
-        val guitarStringIds = listOf(
-            R.id.guitarString1,
-            R.id.guitarString2,
-            R.id.guitarString3,
-            R.id.guitarString4,
-            R.id.guitarString5,
-            R.id.guitarString6
-        )
         val halfTextBoxHeight: Float = findViewById<TextView>(R.id.fret1).height.toFloat() / 2
 
         return guitarStringIds.withIndex().map {
@@ -83,14 +84,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun makeHashMapOfYPositionToGuitarStringId(): Map<Float, Int> {
-        val guitarStringIds = listOf(
-            R.id.guitarString1,
-            R.id.guitarString2,
-            R.id.guitarString3,
-            R.id.guitarString4,
-            R.id.guitarString5,
-            R.id.guitarString6
-        )
         val halfTextBoxHeight: Float = findViewById<TextView>(R.id.fret1).height.toFloat() / 2
 
         return guitarStringIds.withIndex().map {
@@ -101,22 +94,6 @@ class MainActivity : AppCompatActivity() {
     @SuppressLint("SetTextI18n")
     fun submitAnswer(view: View) {
         val getStringPositionIndex: HashMap<Float, Int> = makeHashMapOfYPositionToGuitarStringId() as HashMap<Float, Int>
-        val fretIds= listOf(
-            R.id.fret1,
-            R.id.fret2,
-            R.id.fret3,
-            R.id.fret4,
-            R.id.fret5,
-            R.id.fret6
-        )
-        val submitPickerIds = listOf(
-            R.id.submitPicker1,
-            R.id.submitPicker2,
-            R.id.submitPicker3,
-            R.id.submitPicker4,
-            R.id.submitPicker5,
-            R.id.submitPicker6
-        )
         var answers = IntArray(fretIds.size)
         var submits = IntArray(submitPickerIds.size)
 

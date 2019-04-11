@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:layout_marginBottom="100dp"
         android:background="@color/colorButton"
         android:onClick="setProblems"
@@ -22,14 +22,14 @@
         app:layout_constraintEnd_toStartOf="@+id/submitButton"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout1" />
+        app:layout_constraintTop_toBottomOf="@+id/submitPicker1" />
 
     <Button
         android:id="@+id/submitButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="40dp"
         android:layout_marginBottom="100dp"
         android:background="@color/colorButton"
@@ -40,14 +40,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/startButton"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout1" />
+        app:layout_constraintTop_toBottomOf="@+id/submitPicker1" />
 
     <TextView
         android:id="@+id/textViewScore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="8dp"
         android:background="@color/colorButton"
         android:fontFamily="sans-serif-medium"
@@ -58,9 +58,9 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/startButton" />
+        app:layout_constraintTop_toBottomOf="@+id/startButton"
+        app:layout_constraintVertical_bias="0.322" />
 
     <View
         android:id="@+id/view"
@@ -246,142 +246,76 @@
         app:layout_constraintStart_toEndOf="@+id/fret5"
         app:layout_constraintTop_toTopOf="@+id/guitarString5" />
 
-    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/constraintLayout1"
+    <NumberPicker
+        android:id="@+id/submitPicker1"
         android:layout_width="50dp"
         android:layout_height="90dp"
         android:layout_marginTop="35dp"
         android:background="@android:color/white"
-        app:layout_constraintEnd_toStartOf="@+id/constraintLayout2"
+        android:descendantFocusability="blocksDescendants"
+        app:layout_constraintEnd_toStartOf="@+id/submitPicker2"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view">
+        app:layout_constraintTop_toBottomOf="@+id/view" />
 
-        <NumberPicker
-            android:id="@+id/submitPicker1"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:descendantFocusability="blocksDescendants"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </android.support.constraint.ConstraintLayout>
-
-    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/constraintLayout2"
+    <NumberPicker
+        android:id="@+id/submitPicker2"
         android:layout_width="50dp"
         android:layout_height="90dp"
         android:layout_marginTop="35dp"
         android:background="@android:color/white"
-        app:layout_constraintEnd_toStartOf="@+id/constraintLayout3"
+        android:descendantFocusability="blocksDescendants"
+        app:layout_constraintEnd_toStartOf="@+id/submitPicker3"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/constraintLayout1"
-        app:layout_constraintTop_toBottomOf="@+id/view">
+        app:layout_constraintStart_toEndOf="@+id/submitPicker1"
+        app:layout_constraintTop_toBottomOf="@+id/view" />
 
-        <NumberPicker
-            android:id="@+id/submitPicker2"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:descendantFocusability="blocksDescendants"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </android.support.constraint.ConstraintLayout>
-
-    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/constraintLayout3"
+    <NumberPicker
+        android:id="@+id/submitPicker3"
         android:layout_width="50dp"
         android:layout_height="90dp"
         android:layout_marginTop="35dp"
         android:background="@android:color/white"
-        app:layout_constraintEnd_toStartOf="@+id/constraintLayout4"
+        android:descendantFocusability="blocksDescendants"
+        app:layout_constraintEnd_toStartOf="@+id/submitPicker4"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/constraintLayout2"
-        app:layout_constraintTop_toBottomOf="@+id/view">
+        app:layout_constraintStart_toEndOf="@+id/submitPicker2"
+        app:layout_constraintTop_toBottomOf="@+id/view" />
 
-        <NumberPicker
-            android:id="@+id/submitPicker3"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:descendantFocusability="blocksDescendants"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </android.support.constraint.ConstraintLayout>
-
-    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/constraintLayout4"
+    <NumberPicker
+        android:id="@+id/submitPicker4"
         android:layout_width="50dp"
         android:layout_height="90dp"
         android:layout_marginTop="35dp"
         android:background="@android:color/white"
-        app:layout_constraintEnd_toStartOf="@+id/constraintLayout5"
+        android:descendantFocusability="blocksDescendants"
+        app:layout_constraintEnd_toStartOf="@+id/submitPicker5"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/constraintLayout3"
-        app:layout_constraintTop_toBottomOf="@+id/view">
+        app:layout_constraintStart_toEndOf="@+id/submitPicker3"
+        app:layout_constraintTop_toBottomOf="@+id/view" />
 
-        <NumberPicker
-            android:id="@+id/submitPicker4"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:descendantFocusability="blocksDescendants"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </android.support.constraint.ConstraintLayout>
-
-    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/constraintLayout5"
+    <NumberPicker
+        android:id="@+id/submitPicker5"
         android:layout_width="50dp"
         android:layout_height="90dp"
         android:layout_marginTop="35dp"
         android:background="@android:color/white"
-        app:layout_constraintEnd_toStartOf="@+id/constraintLayout6"
+        android:descendantFocusability="blocksDescendants"
+        app:layout_constraintEnd_toStartOf="@+id/submitPicker6"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/constraintLayout4"
-        app:layout_constraintTop_toBottomOf="@+id/view">
+        app:layout_constraintStart_toEndOf="@+id/submitPicker4"
+        app:layout_constraintTop_toBottomOf="@+id/view" />
 
-        <NumberPicker
-            android:id="@+id/submitPicker5"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:descendantFocusability="blocksDescendants"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </android.support.constraint.ConstraintLayout>
-
-    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/constraintLayout6"
+    <NumberPicker
+        android:id="@+id/submitPicker6"
         android:layout_width="50dp"
         android:layout_height="90dp"
         android:layout_marginTop="35dp"
         android:background="@android:color/white"
+        android:descendantFocusability="blocksDescendants"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/constraintLayout5"
-        app:layout_constraintTop_toBottomOf="@+id/view">
-
-        <NumberPicker
-            android:id="@+id/submitPicker6"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:descendantFocusability="blocksDescendants"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </android.support.constraint.ConstraintLayout>
+        app:layout_constraintStart_toEndOf="@+id/submitPicker5"
+        app:layout_constraintTop_toBottomOf="@+id/view" />
 
 </android.support.constraint.ConstraintLayout>

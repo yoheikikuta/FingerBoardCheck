@@ -88,25 +88,25 @@ class MainActivity : AppCompatActivity() {
         val randomFretValues = (0..12).shuffled().slice(0..6)
         val sortedFretValues = randomFretValues.sorted()
         val randomStringPositionValues = (0..5).shuffled().toList()
-        val getStringPositionCoordinates: HashMap<Int, Float> = makeHashMapOfGuitarStringIdToYPosition() as HashMap<Int, Float>
+        val getStringPositionCoordinates: HashMap<Int, Int> = makeMapOfGuitarStringIdToYPosition() as HashMap<Int, Int>
 
         setDefaultScore()
         setDefaultBackground(fretIds)
 
         fretIds.map { findViewById<TextView>(it) }.forEachIndexed { index, it ->
             it.text = sortedFretValues[index].toString()
-            it.y = getStringPositionCoordinates[randomStringPositionValues[index]]!!
+            it.y = getStringPositionCoordinates[randomStringPositionValues[index]]!!.toFloat()
         }
     }
 
     @SuppressLint("SetTextI18n")
     fun submitAnswers(view: View) {
-        val getStringPositionIndex: HashMap<Float, Int> = makeHashMapOfYPositionToGuitarStringId() as HashMap<Float, Int>
+        val getStringPositionIndex: HashMap<Int, Int> = makeMapOfYPositionToGuitarStringId() as HashMap<Int, Int>
         var answers = IntArray(fretIds.size)
         var submits = IntArray(submitPickerIds.size)
 
         fretIds.map { findViewById<TextView>(it) }.forEachIndexed { idx, it ->
-            answers[idx] = questionToAnswer(it.text.toString().toInt(), getStringPositionIndex[it.y]!!)
+            answers[idx] = questionToAnswer(it.text.toString().toInt(), getStringPositionIndex[it.y.toInt()]!!)
         }
 
         submitPickerIds.map { findViewById<NumberPicker>(it) }.forEachIndexed { idx, it ->
@@ -122,21 +122,19 @@ class MainActivity : AppCompatActivity() {
         scoreTextView.text = "SCORE: $correctNum/${answers.size}"
     }
 
-    fun makeHashMapOfGuitarStringIdToYPosition(): Map<Int, Float> {
-//        val halfTextBoxHeight: Float = findViewById<TextView>(R.id.fret1).height.toFloat() / 2
+    fun makeMapOfGuitarStringIdToYPosition(): Map<Int, Int> {
+        val halfTextBoxHeight: Float = findViewById<TextView>(R.id.fret1).height.toFloat() / 5
 
         return guitarStringIds.withIndex().map {
-                (index, id) -> index to findViewById<View>(id).y + 30f
-//                (index, id) -> index to findViewById<View>(id).y - halfTextBoxHeight
+                (index, id) -> index to (findViewById<View>(id).y + halfTextBoxHeight).toInt()
         }.toMap()
     }
 
-    fun makeHashMapOfYPositionToGuitarStringId(): Map<Float, Int> {
-//        val halfTextBoxHeight: Float = findViewById<TextView>(R.id.fret1).height.toFloat() / 2
+    fun makeMapOfYPositionToGuitarStringId(): Map<Int, Int> {
+        val halfTextBoxHeight: Float = findViewById<TextView>(R.id.fret1).height.toFloat() / 5
 
         return guitarStringIds.withIndex().map {
-                (index, id) -> findViewById<View>(id).y + 30f to index
-//                (index, id) -> findViewById<View>(id).y - halfTextBoxHeight to index
+                (index, id) -> (findViewById<View>(id).y + halfTextBoxHeight).toInt() to index
         }.toMap()
     }
 

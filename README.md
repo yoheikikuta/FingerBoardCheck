@@ -10,6 +10,6 @@ How to play:
 - Press `START` to play again.
 
 <p align="center">
-  <img src="https://i.imgur.com/NOFi7uH.png" width="320px">
-  <img src="https://i.imgur.com/EchtrDN.png" width="320px">
+  <img src="https://i.imgur.com/aTJusqQ.png" width="320px">
+  <img src="https://i.imgur.com/FisKxXh.png" width="320px">
 </p>

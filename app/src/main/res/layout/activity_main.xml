@@ -49,177 +49,211 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/startButton" />
 
-    <View
-        android:id="@+id/view"
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/constraintLayerFingerBoard"
         android:layout_width="350dp"
-        android:layout_height="258dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@color/colorButton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.488"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.065" />
-
-    <View
-        android:id="@+id/guitarString1"
-        android:layout_width="350dp"
-        android:layout_height="5dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:background="@color/colorBlack"
+        android:layout_height="260dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@android:color/white"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/view" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <View
-        android:id="@+id/guitarString2"
-        android:layout_width="350dp"
-        android:layout_height="5dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@color/colorBlack"
-        app:layout_constraintBottom_toTopOf="@+id/guitarString3"
+        <View
+            android:id="@+id/guitarString1"
+            android:layout_width="wrap_content"
+            android:layout_height="5dp"
+            android:background="@color/colorBlack"
+            app:layout_constraintBottom_toTopOf="@+id/guitarString2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="spread_inside" />
+
+        <View
+            android:id="@+id/guitarString2"
+            android:layout_width="wrap_content"
+            android:layout_height="5dp"
+            android:background="@color/colorBlack"
+            app:layout_constraintBottom_toTopOf="@+id/guitarString3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/guitarString1"
+            app:layout_constraintVertical_chainStyle="spread_inside" />
+
+        <View
+            android:id="@+id/guitarString3"
+            android:layout_width="wrap_content"
+            android:layout_height="5dp"
+            android:background="@color/colorBlack"
+            app:layout_constraintBottom_toTopOf="@+id/guitarString4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/guitarString2"
+            app:layout_constraintVertical_chainStyle="spread_inside" />
+
+        <View
+            android:id="@+id/guitarString4"
+            android:layout_width="wrap_content"
+            android:layout_height="5dp"
+            android:background="@color/colorBlack"
+            app:layout_constraintBottom_toTopOf="@+id/guitarString5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/guitarString3"
+            app:layout_constraintVertical_chainStyle="spread_inside" />
+
+        <View
+            android:id="@+id/guitarString5"
+            android:layout_width="wrap_content"
+            android:layout_height="5dp"
+            android:background="@color/colorBlack"
+            app:layout_constraintBottom_toTopOf="@+id/guitarString6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/guitarString4"
+            app:layout_constraintVertical_chainStyle="spread_inside" />
+
+        <View
+            android:id="@+id/guitarString6"
+            android:layout_width="wrap_content"
+            android:layout_height="5dp"
+            android:background="@color/colorBlack"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/guitarString5"
+            app:layout_constraintVertical_chainStyle="spread_inside" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <Space
+        android:id="@+id/space"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/guitarString1"
-        app:layout_constraintVertical_bias="0.55" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayerFingerBoard" />
 
-    <View
-        android:id="@+id/guitarString3"
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/constraintLayerProblems"
         android:layout_width="350dp"
-        android:layout_height="5dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="45dp"
-        android:background="@color/colorBlack"
-        app:layout_constraintBottom_toTopOf="@+id/guitarString4"
+        android:layout_height="320dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/space"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent">
 
-    <View
-        android:id="@+id/guitarString4"
-        android:layout_width="350dp"
-        android:layout_height="5dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="45dp"
-        android:background="@color/colorBlack"
-        app:layout_constraintBottom_toTopOf="@+id/guitarString5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <TextView
+            android:id="@+id/fret1"
+            android:layout_width="45dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="5dp"
+            android:background="@drawable/textbox_default"
+            android:gravity="center_vertical"
+            android:text="@string/fret"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="35sp"
+            android:typeface="monospace"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/fret2"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toStartOf="parent" />
 
-    <View
-        android:id="@+id/guitarString5"
-        android:layout_width="350dp"
-        android:layout_height="5dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="45dp"
-        android:background="@color/colorBlack"
-        app:layout_constraintBottom_toTopOf="@+id/guitarString6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <TextView
+            android:id="@+id/fret2"
+            android:layout_width="45dp"
+            android:layout_height="55dp"
+            android:background="@drawable/textbox_default"
+            android:gravity="center_vertical"
+            android:text="@string/fret"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="35sp"
+            android:typeface="monospace"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/fret3"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toEndOf="@+id/fret1" />
 
-    <View
-        android:id="@+id/guitarString6"
-        android:layout_width="350dp"
-        android:layout_height="5dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:background="@color/colorBlack"
-        app:layout_constraintBottom_toBottomOf="@+id/view"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <TextView
+            android:id="@+id/fret3"
+            android:layout_width="45dp"
+            android:layout_height="55dp"
+            android:background="@drawable/textbox_default"
+            android:gravity="center_vertical"
+            android:text="@string/fret"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="35sp"
+            android:typeface="monospace"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/fret4"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toEndOf="@+id/fret2" />
 
-    <TextView
-        android:id="@+id/fret1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:background="@drawable/textbox_default"
-        android:text="@string/fret"
-        android:textColor="@android:color/white"
-        android:textSize="40sp"
-        android:typeface="monospace"
-        app:layout_constraintEnd_toStartOf="@+id/fret2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guitarString5" />
+        <TextView
+            android:id="@+id/fret4"
+            android:layout_width="45dp"
+            android:layout_height="55dp"
+            android:background="@drawable/textbox_default"
+            android:gravity="center_vertical"
+            android:text="@string/fret"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="35sp"
+            android:typeface="monospace"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/fret5"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toEndOf="@+id/fret3" />
 
-    <TextView
-        android:id="@+id/fret2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:background="@drawable/textbox_default"
-        android:text="@string/fret"
-        android:textColor="@android:color/white"
-        android:textSize="40sp"
-        android:typeface="monospace"
-        app:layout_constraintEnd_toStartOf="@+id/fret3"
-        app:layout_constraintStart_toEndOf="@+id/fret1"
-        app:layout_constraintTop_toTopOf="@+id/guitarString5" />
+        <TextView
+            android:id="@+id/fret5"
+            android:layout_width="45dp"
+            android:layout_height="55dp"
+            android:background="@drawable/textbox_default"
+            android:gravity="center_vertical"
+            android:text="@string/fret"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="35sp"
+            android:typeface="monospace"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/fret6"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toEndOf="@+id/fret4" />
 
-    <TextView
-        android:id="@+id/fret3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:background="@drawable/textbox_default"
-        android:text="@string/fret"
-        android:textColor="@android:color/white"
-        android:textSize="40sp"
-        android:typeface="monospace"
-        app:layout_constraintEnd_toStartOf="@+id/fret4"
-        app:layout_constraintStart_toEndOf="@+id/fret2"
-        app:layout_constraintTop_toTopOf="@+id/guitarString5" />
+        <TextView
+            android:id="@+id/fret6"
+            android:layout_width="45dp"
+            android:layout_height="55dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/textbox_default"
+            android:gravity="center_vertical"
+            android:text="@string/fret"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="35sp"
+            android:typeface="monospace"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toEndOf="@+id/fret5" />
 
-    <TextView
-        android:id="@+id/fret4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:background="@drawable/textbox_default"
-        android:text="@string/fret"
-        android:textColor="@android:color/white"
-        android:textSize="40sp"
-        android:typeface="monospace"
-        app:layout_constraintEnd_toStartOf="@+id/fret5"
-        app:layout_constraintStart_toEndOf="@+id/fret3"
-        app:layout_constraintTop_toTopOf="@+id/guitarString5" />
-
-    <TextView
-        android:id="@+id/fret5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:background="@drawable/textbox_default"
-        android:text="@string/fret"
-        android:textColor="@android:color/white"
-        android:textSize="40sp"
-        android:typeface="monospace"
-        app:layout_constraintEnd_toStartOf="@+id/fret6"
-        app:layout_constraintStart_toEndOf="@+id/fret4"
-        app:layout_constraintTop_toTopOf="@+id/guitarString5" />
-
-    <TextView
-        android:id="@+id/fret6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:background="@drawable/textbox_default"
-        android:text="@string/fret"
-        android:textColor="@android:color/white"
-        android:textSize="40sp"
-        android:typeface="monospace"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/fret5"
-        app:layout_constraintTop_toTopOf="@+id/guitarString5" />
+    </android.support.constraint.ConstraintLayout>
 
     <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -231,7 +265,7 @@
         app:layout_constraintBottom_toTopOf="@+id/startButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view">
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayerFingerBoard">
 
         <NumberPicker
             android:id="@+id/submitPicker1"

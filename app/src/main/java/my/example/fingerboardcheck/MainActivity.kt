@@ -123,18 +123,20 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun makeHashMapOfGuitarStringIdToYPosition(): Map<Int, Float> {
-        val halfTextBoxHeight: Float = findViewById<TextView>(R.id.fret1).height.toFloat() / 2
+//        val halfTextBoxHeight: Float = findViewById<TextView>(R.id.fret1).height.toFloat() / 2
 
         return guitarStringIds.withIndex().map {
-                (index, id) -> index to findViewById<View>(id).y - halfTextBoxHeight
+                (index, id) -> index to findViewById<View>(id).y + 30f
+//                (index, id) -> index to findViewById<View>(id).y - halfTextBoxHeight
         }.toMap()
     }
 
     fun makeHashMapOfYPositionToGuitarStringId(): Map<Float, Int> {
-        val halfTextBoxHeight: Float = findViewById<TextView>(R.id.fret1).height.toFloat() / 2
+//        val halfTextBoxHeight: Float = findViewById<TextView>(R.id.fret1).height.toFloat() / 2
 
         return guitarStringIds.withIndex().map {
-                (index, id) -> findViewById<View>(id).y - halfTextBoxHeight to index
+                (index, id) -> findViewById<View>(id).y + 30f to index
+//                (index, id) -> findViewById<View>(id).y - halfTextBoxHeight to index
         }.toMap()
     }
 

@@ -1,4 +1,4 @@
-package my.example.fingerboardcheck
+package io.github.yoheikikuta.fingerboardcheck
 
 import android.annotation.SuppressLint
 import android.app.Dialog
@@ -12,7 +12,6 @@ import android.widget.TextView
 import android.content.DialogInterface
 import android.support.v7.app.AlertDialog
 import android.webkit.WebView
-
 
 
 class MainActivity : AppCompatActivity() {

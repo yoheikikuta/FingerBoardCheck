@@ -1,4 +1,4 @@
-package my.example.fingerboardcheck
+package io.github.yoheikikuta.fingerboardcheck
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4

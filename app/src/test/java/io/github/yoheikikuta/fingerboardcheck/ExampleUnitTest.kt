@@ -1,4 +1,4 @@
-package my.example.fingerboardcheck
+package io.github.yoheikikuta.fingerboardcheck
 
 import org.junit.Test
 

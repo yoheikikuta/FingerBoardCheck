@@ -15,11 +15,11 @@ import android.webkit.WebView
 
 
 class MainActivity : AppCompatActivity() {
-    val DIALOG_ID_INFO = 1
+    private val DIALOG_ID_INFO = 1
 
-    val submitCandidates: Array<String> = arrayOf("NA", "ド", "ド♯", "レ", "レ♯", "ミ", "ファ", "ファ♯", "ソ", "ソ♯", "ラ", "ラ♯", "シ")
+    private val submitCandidates: Array<String> = arrayOf("NA", "ド", "ド♯", "レ", "レ♯", "ミ", "ファ", "ファ♯", "ソ", "ソ♯", "ラ", "ラ♯", "シ")
 
-    val submitPickerIds = listOf(
+    private val submitPickerIds = listOf(
         R.id.submitPicker1,
         R.id.submitPicker2,
         R.id.submitPicker3,
@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         R.id.submitPicker6
     )
 
-    val fretIds= listOf(
+    private val fretIds= listOf(
         R.id.fret1,
         R.id.fret2,
         R.id.fret3,
@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
         R.id.fret6
     )
 
-    val guitarStringIds = listOf(
+    private val guitarStringIds = listOf(
         R.id.guitarString1,
         R.id.guitarString2,
         R.id.guitarString3,
@@ -121,7 +121,7 @@ class MainActivity : AppCompatActivity() {
         scoreTextView.text = "SCORE: $correctNum/${answers.size}"
     }
 
-    fun makeMapOfGuitarStringIdToYPosition(): Map<Int, Int> {
+    private fun makeMapOfGuitarStringIdToYPosition(): Map<Int, Int> {
         val halfTextBoxHeight: Float = findViewById<TextView>(R.id.fret1).height.toFloat() / 5
 
         return guitarStringIds.withIndex().map {
@@ -129,7 +129,7 @@ class MainActivity : AppCompatActivity() {
         }.toMap()
     }
 
-    fun makeMapOfYPositionToGuitarStringId(): Map<Int, Int> {
+    private fun makeMapOfYPositionToGuitarStringId(): Map<Int, Int> {
         val halfTextBoxHeight: Float = findViewById<TextView>(R.id.fret1).height.toFloat() / 5
 
         return guitarStringIds.withIndex().map {
@@ -137,23 +137,23 @@ class MainActivity : AppCompatActivity() {
         }.toMap()
     }
 
-    fun setDefaultScore() {
+    private fun setDefaultScore() {
         val scoreTextView = findViewById<TextView>(R.id.textViewScore)
         scoreTextView.setText(R.string.score)
     }
 
-    fun setDefaultBackground(fretIds: List<Int>) {
+    private fun setDefaultBackground(fretIds: List<Int>) {
         fretIds.map { findViewById<TextView>(it) }.forEach { it.setBackgroundResource(R.drawable.textbox_default) }
     }
 
-    fun checkCorrectSubmits(fretIds: List<Int>, submits: IntArray, answers: IntArray) {
+    private fun checkCorrectSubmits(fretIds: List<Int>, submits: IntArray, answers: IntArray) {
         for ((index, id) in fretIds.withIndex()) {
             if (submits[index] == answers[index]) findViewById<TextView>(id).setBackgroundResource(R.drawable.textbox_correct)
             else findViewById<TextView>(id).setBackgroundResource(R.drawable.textbox_incorrect)
         }
     }
 
-    fun questionToAnswer(fretPos: Int, stringPos: Int): Int {
+    private fun questionToAnswer(fretPos: Int, stringPos: Int): Int {
         val scaleToInt = submitCandidates.withIndex().map {(index,degree) -> degree to index}.toMap()
         var answer = when (stringPos) {
             0 -> when (fretPos) {
